@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 
 import Landing from "./pages/Landing";
@@ -15,27 +15,25 @@ import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
+    <Routes>
 
-        {/* Public Pages */}
-        <Route path="/" element={<Landing />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+      {/* Public Pages */}
+      <Route path="/" element={<Landing />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
 
-        {/* Protected Application */}
-        <Route element={<ProtectedRoute />}>
-          <Route element={<MainLayout />}>
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/dataset" element={<Dataset />} />
-            <Route path="/classification" element={<Classification />} />
-            <Route path="/results" element={<Results />} />
-            <Route path="/reports-history" element={<ReportsHistory />} />
-          </Route>
+      {/* Protected Application */}
+      <Route element={<ProtectedRoute />}>
+        <Route element={<MainLayout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dataset" element={<Dataset />} />
+          <Route path="/classification" element={<Classification />} />
+          <Route path="/results" element={<Results />} />
+          <Route path="/reports-history" element={<ReportsHistory />} />
         </Route>
+      </Route>
 
-      </Routes>
-    </BrowserRouter>
+    </Routes>
   );
 }
 
